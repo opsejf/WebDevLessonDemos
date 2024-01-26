@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bakery Form</title>
+
+        
+    </head>
+    <body>
+
+        <div style="background-color:palegoldenrod">
+            <div style="margin-left: 10px; margin-top: 10px; margin-bottom: 10px;">
+                <h1 style="color: dimgray;">Bakery</h1>
+                Search for our services
+                <br>
+                <input type="search">
+                <hr>
+            </div>
+            
+        
+
+            <h2 style="margin-left: 10px; margin-top: 10px; margin-bottom: 10px; color:dimgray;">Ordering a cake for a special occasion</h2>
+            <hr>
+            <div style="margin-left: 10px; margin-top: 10px; margin-bottom: 10px; color:dimgray;">
+                <fieldset>
+                    <legend>Cake Order Form</legend>
+                    <form style="border: 10px; color: black;" method="post" action="http://www.nextpoint.co.uk/test.php">
+
+                        
+                        <b>Please provide a description of what you would like your cake to look like</b>
+                        <br>
+        
+                        <textarea name="feedback" rows="10" cols="62">
+                            Enter Description Here
+                        </textarea>
+        
+                        <br>
+                        <br>
+                        <b>What size cake would you like?</b>
+                        <br>
+                        <label id="radio1">6-Inch Round</label>
+                        <input type="radio" id="radio1" name="cakesize" value="6">
+                        <br>
+                        <label id="radio2">7-Inch Round</label>
+                        <input type="radio" id="radio2" name="cakesize" value="7">
+                        <br>
+                        <label id="radio3">8-Inch Round</label>
+                        <input type="radio" id="radio3" name="cakesize" value="8">
+                        <br>
+
+
+                        <br>
+                        <b>How many layers would you like?</b>
+                        <br>
+                        <label id="button1">1</label>
+                        <input type="radio" value="1" name="layer" id="button1">
+                        <br>
+                        <label id="button2">2</label>
+                        <input type="radio" value="2" name="layer" id="button2">
+                        <br>
+                        <label id="button3">3</label>
+                        <input type="radio" value="3" name="layer" id="button3">
+                        <br>
+                        <label id="button4">4</label>
+                        <input type="radio" value="4" name="layer" id="button4">
+                        <br>
+
+
+    
+                        <br>
+                        <b>What type of sponge would you like?</b>
+                        <br>
+                        <select name="cakeflavour">
+                            <option>---</option>
+                            <option value="vanilla">Vanilla</option>
+                            <option value="chocolate">Chocolate</option>
+                            <option value="salted caramel">Salted Caramel</option>
+                            <option value="red velvet">Red Velvet</option>
+                            <option value="lemon">Lemon</option>
+    
+                        </select>
+    
+                        <br>
+                        <br>
+                        <b>What filling(s) would you like?</b>
+                        <br>
+                        <label id="checkbox1">Jam</label>
+                        <input type="checkbox" id="checkbox1" name="filling1" value="jam">
+                        <br>
+                        <label id="checkbox2">Fresh Cream</label>
+                        <input type="checkbox" id="checkbox2" name="filling2" value="fresh cream">
+                        <br>
+                        <label id="checkbox3">Vanilla Buttercream</label>
+                        <input type="checkbox" id="checkbox3" name="filling3" value="vanilla buttercream">
+                        <br>
+                        <label id="checkbox4">Chocolate Buttercream</label>
+                        <input type="checkbox" id="checkbox4" name="filling4" value="chocolate buttercream">
+                        <br>
+                        <label id="checkbox5">Cream Cheese</label>
+                        <input type="checkbox" id="checkbox5" name="filling5" value="cream cheese">
+                        <br>
+                        <label id="checkbox6">Lemon Curd</label>
+                        <input type="checkbox" id="checkbox6" name="filling6" value="lemon curd">
+                        <br>
+    
+                        <br>
+                        What colour would you like your icing to be?
+                        <br>
+                        <input type="color" size="20px" name="icingcolour">
+
+                        <br>
+                        <br>
+                        <b>What age will be on the cake?</b>
+                        <br>
+                        <input type="range" max="120" min="1" value="1" name="age">
+
+
+                        <br>
+                        <br>
+                        <b><emph>Please select your preferred time and date for collection.</emph></b>
+                        <br>
+                        <input type="datetime-local" name="collectiontime">
+
+
+                        <br>
+                        <br>
+                        <b>Please provide your contact details so we can get in touch about your order.</b>
+        
+                        <br>
+                        <br>
+                        Customer Name
+                        <br>
+                        <input type="text" size="20" name="UserName">
+                        <br>
+                        Customer Email
+                        <br>
+                        <input type="email" name="UserEmail">
+                        <br>
+                        Customer Phone Number
+                        <br>
+                        <input type="number" name="Number">
+                        <br>
+                        <br>
+
+                        
+                        <b>Please submit the form once completed.</b>
+                        <input type="submit" name="OKButton">
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        
+                        <b>Our Contact Details</b>
+                        <br>
+                        <br>
+                        This is our Bakery website if you need to refer back to us.
+                        <br>
+                        <input type="url" value="www.bakerycakes.com" readonly>
+                        
+                        
+        
+                        
+        
+                        
+        
+                        
+        
+                        
+
+                        
+                    </form>
+                </fieldset>
+            </div>
+
+            
+        </div>
+    </body>
+</html>

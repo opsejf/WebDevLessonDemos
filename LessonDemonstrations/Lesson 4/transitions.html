@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Transitions</title>
+
+        <style>
+            h1{
+                background-color: red;
+            }
+            h1:hover{
+                background-color: blue;
+                padding-left: 3em;
+                /* transition: padding-left 5s linear; */
+                /* transition-delay: 2s;
+                transition-property: width;
+                transition-duration: 2s;
+                transition-timing-function: linear; */
+            }
+
+            .hover{
+                /* background-color: yellow;
+                color: red; */
+                color: purple;
+                transition: 
+                        background 1s linear 0s, 
+                        color 1s linear 0s,
+                        padding 1s linear 0s;
+                        
+            }
+
+            .hover:hover{
+                background-color: yellow;
+                color: red;
+                /* transition: 
+                        background 1s linear 0s, 
+                        color 1s linear 0s,
+                        padding-left 1s linear 0s; */
+                        padding-left: 10em;
+            }
+
+            .slow{
+                transition-duration: 5s;
+                color: aqua;
+            }
+
+            .animated{
+                animation: barrel-roll 100s infinite;
+            }
+
+            @keyframes barrel-roll{
+                0%{
+                    transform: rotate(0deg);
+                }
+                
+                12.5%{
+                    transform: rotate(45deg);
+                }
+
+                25%{
+                    transform: rotate(90deg);
+
+                }
+                37.5%{
+                    transform: rotate(135deg);
+
+                }
+
+                50%{
+                    transform: rotate(180deg);
+                }
+
+                62.5%{
+                    transform: rotate(225deg);
+                }
+
+                75%{
+                    transform: rotate(270deg);
+                }
+
+                87.5%{
+                    transform: rotate(315deg);
+                }
+
+                100%{
+                    transform: rotate(360deg);
+
+                }
+            }
+
+            .flex{
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            @media screen and (max-width:1700px){
+                body{
+                    background-color: blue;
+                }
+            }
+
+            @media print{
+                body{
+                    background-color: green;
+                }
+            }
+
+            .gridattempt{
+                display: grid;
+                grid-template-columns: [one] 200px [two] 100px [three] 100px;
+                grid-template-rows: 300px [top] 300px [middle] 300px [bottom] ;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <h1 class="hover">Hello!</h1>
+
+        <h1 class="slow hover">Hello!</h1>
+
+        <h1 class="animated">Hello!</h1>
+
+
+        <main class="flex">
+            <h1>hello main</h1>
+            <h2>hello main 2</h2>
+            <h3>hello main 3</h3>
+            <h2>hello main 4</h2>
+            <h2>hello main 5</h2>
+        </main>
+
+        <div class="gridattempt">
+
+        </div>
+    </body>
+
+</html>
