@@ -4,15 +4,19 @@
 
 <script>
     //Based upon current scope, e.g. give this value to 1 customer but not all customer accounts
-    let a = 10
+    let a = '15';
     // How you would set up a global variable
-    var b = parseInt("10")
+    var b = 1;
     
-    c = 10
+    c = 123.456789;
     // This is for when you do not want the value to be changed, give it const
-    const d = 10
+    const d = `*****AAAAA*****`;
 
-    alert('Hello!');
+    let name = "Dave";
+    
+    let message = `Hello ${name}...${d}... One, Two, Three`;
+
+    // alert('Hello!');
 
     console.log(a);
     console.log(b);
@@ -26,6 +30,77 @@
     console.log(Math.floor(e));
     console.log(Math.ceil(e));
     console.log(Math.round(e));
+
+    console.log(message);
+    console.log(message.toUpperCase() );
+    console.log(message.toLowerCase() );
+    console.log(message.substring(3,10) );
+    console.log(message.length );
+    console.log(message.substring(0, message.length/2) );
+
+    console.log(true);
+    console.log(false);
+
+    console.log(5>4);
+    console.log(5<4);
+
+
+    let x = 5 != 4;
+    console.log(x);
+    console.log(x);
+    console.log(x);
+    console.log(x);
+    console.log(x);
+    console.log(x);
+    console.log(x);
+    console.log(x);
+    console.log(x);
+
+
+    console.log(true && true);
+    console.log(true && false);
+    console.log(false && true);
+    console.log(false && false);
+
+    console.log(true || true);
+    console.log(true || false);
+    console.log(false || true);
+    console.log(false || false);
+
+
+    let data = ["a", "b", "c"];
+
+    console.log(data.length);
+
+    console.log(data[0]);
+
+    // for(let n = 0; n < data.length; ++n){
+    //     console.log(data[n]);
+    // }
+
+
+
+    var result=50;
+
+    let something = (n=5)=>{
+        let result=0;
+        console.log(result);
+        console.log("+++++",n);
+        console.log("=======");
+        for(let i=0; i<n; i++){
+            console.log(i);
+            result= result +i;
+        }
+        return result;
+    }
+
+
+    document.write(something());
+    document.write("<br/>")
+    // let y = something(2)
+    document.write(something(10)*5);
+
+
 
 
 
