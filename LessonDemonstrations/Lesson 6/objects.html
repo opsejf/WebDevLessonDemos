@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<script>
+
+    // let something = new Object(); //old way of declaring object
+    let something = {}; //modern way to declare
+
+    let person = {
+        "name": "Dave",
+        "age": 20,
+        "job": "bus driver",
+        "gender": "male",
+        "ethnicity": "white",
+        "register": ["A", "B", "C"],
+        "address":{
+            "street": "ABC",
+            "city": "London",
+            "postcode": "XYZ"
+        },
+        "telephone_number": 1223456,
+        "run": function(from, to){
+        console.log(`I will run from ${from} to ${to}.`);
+        }
+    };
+
+
+    console.log(person.name);
+    console.log(person.age);
+    console.log(person.job);
+    console.log(person.address);
+    document.write(person.address);
+
+    console.log(person.address.street);
+
+
+    
+
+    console.log(person.run("Manchester", "London"));
+    console.log(person.telephone_number);
+    let key = "name";
+    console.log(person[key]);
+
+
+    console.log(Object.keys(person));
+
+    let html = '';
+
+    for(let key of Object.keys(person)){
+        console.log(key, typeof person[key])
+        html += <option>${key}</option>;
+    }
+
+    let node = document.createElement()
+    node.innerHTML = html;
+    document.appendChild(node);
+
+
+    // JSON
+
+    //
+    
+    
+    //XML
+
+    //HOW XML IS: (can basically make tags you want as you go)
+
+    // <person>
+    //     <name>Dave</name>
+    //     <age>20</age>
+    // </person>
+
+
+    // <person name="Dave" age="20"/>
+
+
+    // person.name
+    // person.age
+
+
+    // CSV
+
+    //comma seperated values, writes to file. spreadsheet. way of viewing data
+
+</script>
+    </head>
+    <body>
+
+    </body>
+</html>
