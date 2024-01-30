@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- this way is to make it work when its a linked file -->
+        <!-- <script src="..." defer></script>  -->
+
+
+
+        <!-- this is random -->
+        <!-- <script>
+            document.onload = function(){
+                document.querySelector('button').onclick = function(){
+                alert(789)
+                }
+    
+                document.querySelector('input').oninput = function(e){
+                    console.log('aaaaaa')
+                    console.log(e)
+                }
+
+            }  
+    
+        </script> -->
+
+        <!-- <script>
+            //because we have init, need to add it into body tag by saying onload = "init()"
+
+            // if init function wasnt wrapped in the window wrap around function, then it would need onload = "init()" adding into the body tag
+
+            
+                let init = function(){
+                    document.querySelector('button').addEventListener("click", function(){
+                    alert(789)
+                    })
+        
+                    document.querySelector('input').addEventListener("click", function(){
+                        alert("ABC")
+                    })
+
+                    document.querySelector('input').oninput = function(e){
+                        console.log('aaaaaa')
+                        console.log(e)
+                    }
+                }
+            
+    
+        </script> -->
+
+
+<script>
+
+
+    let action = function(e){
+        alert(789)
+        console.log(e)
+    };
+
+    let data = {
+        "telephone": "123"
+    };
+
+    let dataBind = function(){
+
+    };
+
+    dataBind.get = function(key){
+        return data[key];
+    };
+
+    dataBind.set = function(key,value){
+        data[key] = value;
+    };
+
+    dataBind.display = function(){
+        document.querySelectorAll('[name], [data]').forEach(function(item){
+
+            if(item.name == undefined){
+                item.innerText = data[item.getAttribute("data")];
+                // if(data[key] !== undefined) {
+                //     item.innerText = data[key];
+                // }
+            }
+            else{
+                item.value = data[item.name];
+            }
+            //console.log(item.value, item.innerText)
+            // let key = item.name;
+            // if(key == undefined){
+            //     key = item.getAttribute("data");
+            // }
+
+            // if(item.name == undefined){
+            //     item.name = data[item.name];
+            // }
+            // if(item.innerText){
+            //     item.innerText = data[key];
+            // }
+            // if(item.value){
+            //     item.value = data[key];
+            // }
+            // else{
+            //     item.value = data[item.name];
+            // }
+
+            //shorter way of writing the above
+
+            // let key = item.name || item.getAttribute("data");
+
+
+        });
+    }
+
+    
+    // first method shown for this to add new elements of a list in a form
+
+    // let addItem = function(){
+    //     document.getElementById('itemList').innerHTML +=
+    //     `<div>
+    //         <span>Item</span> - <span>Item</span>
+    //     </div>`
+    // }
+
+
+    //secondmethod shown to complete the above
+
+
+    let addItem = function(templateName){
+        let parentNode = document.getElementById('itemList');
+
+        let template = document.querySelector(`[data-template="${templateName}"]`).innerHTML;
+        template = template.replaceAll("{count}", parentNode.children.length);
+
+
+        let node = document.createElement("div");
+        node.innerHTML = template;
+        parentNode.appendChild(node);
+        // document.getElementById('itemList').appendChild(node);
+        // console.log(document.querySelector('template').innerHTML);
+    }
+
+
+
+
+
+
+
+    // this method doesnt need anything in the body tag
+
+    window.addEventListener("load", function(){
+
+        // dataBind.display();
+
+        document.querySelector('form').addEventListener("input", function(e)
+        {
+            // console.log(e.target.name);
+            dataBind.set(e.target.name, e.target.value);
+        })
+        document.querySelector('button').addEventListener("click", function(){
+            alert(789)
+        })
+
+        document.querySelector('input').addEventListener("click", function(){
+            alert("ABC")
+        })
+
+        document.querySelector('input').oninput = function(e){
+            console.log('aaaaaa')
+            console.log(e)
+        }
+    });
+
+</script>
+
+    
+    </head>
+    <body>
+        <!-- events always start with on--- something. way of identifying when it is being used. -->
+        
+        <button onmouseenter = "alert('I can be clicked')" onclick="alert('this is a second alert')" >click pls</button>
+        <button onclick = "alert(123)">Click me</button>
+        <p onclick = "alert(456)">Click me</p>
+
+
+        <input onchange = "console.log(this.value)">
+        <input oninput = "console.log(this.value)">
+
+        <input onchange="console.log(event)">
+
+        <form>
+            <button>Click me</button>
+            <button>Click Me</button>
+            <input name="telephone"/>
+            <input name="address"/>
+
+            <label id="cakesize1">6-inch</label>
+            <input type="radio" name="cakesize" id="cakesize1">
+            <label id="cakesize2">7-inch</label>
+            <input type="radio" name="cakesize" id="cakesize2">
+            <label id="cakesize3">8-inch</label>
+            <input type="radio" name="cakesize" id="cakesize3">
+            <label id="cakesize4">9-inch</label>
+            <input type="radio" name="cakesize" id="cakesize4">
+
+
+
+
+            <div id="itemList"></div>
+            <input type="button" value="Add Item" onclick="addItem('itemA')"/>
+
+            <br>
+            <br>
+
+
+            <label id="test1">Click me to show your answers</label>
+            <input id="test1" type="button" onclick="dataBind.display();"/>
+
+
+
+        </form>
+
+        <!-- one method -->
+
+        <!-- <template data-template="itemA">
+            <span>Item</span>
+            <span>-</span>
+            <span><input name="telephone{count}"/></span>
+        </template> -->
+
+        <!-- second way for images header etc. shows this can be used for a variety of things -->
+
+
+        <template data-template="itemA">
+            <h1>Flower</h1>
+            <img src="https://th.bing.com/th/id/OIP.8txPISBrcaXrpUFAl4w95wHaIM?w=176&h=195&c=7&r=0&o=5&pid=1.7"/>
+
+        </template>
+
+        <h1 data="telephone"></h1>
+        <h1 data="address"></h1>
+
+        <!-- <input type="button" onclick="document.write('<h1>hello</h1>')" /> -->
+
+
+        <!-- <img src="fakeimage.jpg" onerror="alert('Image not loaded')"> -->
+
+
+
+        <!-- this one below is like a stuck loop because the cursor is stuck in the textbox so it's always on focus -->
+        <!-- <input onfocus = "alert(999)">  -->
+
+        
+
+
+        
+
+
+        
+    </body>
+</html>
