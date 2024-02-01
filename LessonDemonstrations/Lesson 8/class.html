@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+
+
+
+
+<script>
+    class Phone{
+        speaker = "ZZZZ";
+        microphone =  "AAA";
+        number = "0123123123";
+
+        constructor(config={}){
+            //this line below is short version for the commented out section below it
+            !config.telNumber ? alert("You need to provide telephone number") : '';
+            // if(config.telNumber == undefined){
+            //     alert("You need to provide telephone number")
+            // }
+            console.log("I am a phone that was created.")
+            this.number = config.telNumber;
+        }
+
+        call(telNumber){
+            alert("ring ring " + telNumber + " : " + this.number)
+        }
+    }
+
+    class Smartphone extends Phone{
+        display = "big";
+    }
+
+    let myPhone = new Phone({telNumber:"123456789", speaker:"ABC"});
+    console.log(myPhone);
+    console.log(myPhone.number);
+
+    let yourPhone = new Phone({telNumber:"923649623"});
+    yourPhone.number = "7777777777";
+    console.log(yourPhone);
+    console.log(yourPhone.number);
+
+    console.log(myPhone.number);
+
+    myPhone.call("999");
+    yourPhone.call("999");
+
+    newPhone = new Smartphone({telNumber:"800"});
+    console.log(newPhone);
+
+    
+
+</script>
+
+    </body>
+</html>

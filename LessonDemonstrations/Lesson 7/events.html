@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="databind.js" defer ></script>
 
         <!-- this way is to make it work when its a linked file -->
         <!-- <script src="..." defer></script>  -->
@@ -51,67 +52,19 @@
 <script>
 
 
-    let action = function(e){
-        alert(789)
-        console.log(e)
-    };
+    // let action = function(e){
+    //     alert(789)
+    //     console.log(e)
+    // };
 
     let data = {
-        "telephone": "123"
+    "telephone": "123",
+    "address": "abc"
     };
-
-    let dataBind = function(){
-
-    };
-
-    dataBind.get = function(key){
-        return data[key];
-    };
-
-    dataBind.set = function(key,value){
-        data[key] = value;
-    };
-
-    dataBind.display = function(){
-        document.querySelectorAll('[name], [data]').forEach(function(item){
-
-            if(item.name == undefined){
-                item.innerText = data[item.getAttribute("data")];
-                // if(data[key] !== undefined) {
-                //     item.innerText = data[key];
-                // }
-            }
-            else{
-                item.value = data[item.name];
-            }
-            //console.log(item.value, item.innerText)
-            // let key = item.name;
-            // if(key == undefined){
-            //     key = item.getAttribute("data");
-            // }
-
-            // if(item.name == undefined){
-            //     item.name = data[item.name];
-            // }
-            // if(item.innerText){
-            //     item.innerText = data[key];
-            // }
-            // if(item.value){
-            //     item.value = data[key];
-            // }
-            // else{
-            //     item.value = data[item.name];
-            // }
-
-            //shorter way of writing the above
-
-            // let key = item.name || item.getAttribute("data");
-
-
-        });
-    }
 
     
+
+    // ///////////////////////////////////////////////////////////////
     // first method shown for this to add new elements of a list in a form
 
     // let addItem = function(){
@@ -125,8 +78,8 @@
     //secondmethod shown to complete the above
 
 
-    let addItem = function(templateName){
-        let parentNode = document.getElementById('itemList');
+    let addItem = function(templateName, targetSelector){
+        let parentNode = document.querySelector(targetSelector);
 
         let template = document.querySelector(`[data-template="${templateName}"]`).innerHTML;
         template = template.replaceAll("{count}", parentNode.children.length);
@@ -139,35 +92,16 @@
         // console.log(document.querySelector('template').innerHTML);
     }
 
-
-
-
-
-
-
+    // ///////////////////////////////////////////////////////////////
     // this method doesnt need anything in the body tag
+    // 
 
     window.addEventListener("load", function(){
 
         // dataBind.display();
 
-        document.querySelector('form').addEventListener("input", function(e)
-        {
-            // console.log(e.target.name);
-            dataBind.set(e.target.name, e.target.value);
-        })
-        document.querySelector('button').addEventListener("click", function(){
-            alert(789)
-        })
-
-        document.querySelector('input').addEventListener("click", function(){
-            alert("ABC")
-        })
-
-        document.querySelector('input').oninput = function(e){
-            console.log('aaaaaa')
-            console.log(e)
-        }
+        //code now in js file
+        
     });
 
 </script>
@@ -175,6 +109,16 @@
     
     </head>
     <body>
+
+        <h1><a href="./events2.html">Link to page 2</a></h1>
+
+        <input type="button" value="Save" onclick="dataBind.save()"/>
+        <input type="button" value="Add Item" onclick="addItem('itemB','#anotheritemList')"/>
+
+
+        <div id="anotheritemList"></div>
+
+
         <!-- events always start with on--- something. way of identifying when it is being used. -->
         
         <button onmouseenter = "alert('I can be clicked')" onclick="alert('this is a second alert')" >click pls</button>
@@ -206,7 +150,7 @@
 
 
             <div id="itemList"></div>
-            <input type="button" value="Add Item" onclick="addItem('itemA')"/>
+            <input type="button" value="Add Item" onclick="addItem('itemA','#itemList')"/>
 
             <br>
             <br>
@@ -215,20 +159,17 @@
             <label id="test1">Click me to show your answers</label>
             <input id="test1" type="button" onclick="dataBind.display();"/>
 
-
-
         </form>
 
         <!-- one method -->
 
-        <!-- <template data-template="itemA">
+        <template data-template="itemB">
             <span>Item</span>
             <span>-</span>
             <span><input name="telephone{count}"/></span>
-        </template> -->
+        </template>
 
         <!-- second way for images header etc. shows this can be used for a variety of things -->
-
 
         <template data-template="itemA">
             <h1>Flower</h1>

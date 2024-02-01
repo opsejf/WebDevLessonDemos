@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="databind.js" defer></script>
+
+<script>
+// let data = {
+//     "telephone": 123,
+//     "address": "adbsfkb"
+// }
+
+let data = JSON.parse( sessionStorage.getItem("data"));
+
+fetch("https://dummyjson.com/users/1")
+    // .then(function(result){ return result.json()}) this is longhanded version of line below
+    .then(result => result.json())
+    .then(function(details){
+        console.log(details);
+        data = details;
+        dataBind.display();
+    });
+
+
+
+</script>
+
+    </head>
+<script>
+
+</script>
+
+    <body>
+        <h1><a href="./events.html">Link to page 1</a></h1>
+
+
+        <h1>Display Data</h1>
+        <p>Telephone: <span data="phone"></span></p>
+        <!-- address is appearing as object object because it contains two further items so cannot present a single one of them -->
+        <p>Address: <span data="address.city"></span></p>
+        <p>Age: <span data="age"></span></p>
+        <p>Forename: <span data="firstName"></span></p>
+        <p>Eye Colour: <span data="eyeColor"></span></p>
+
+        
+    </body>
+</html>
+
+
+
