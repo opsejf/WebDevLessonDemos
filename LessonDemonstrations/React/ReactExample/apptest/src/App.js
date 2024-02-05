@@ -2,11 +2,28 @@ import logo from './logo.svg';
 import Person from './Person.js';
 import './App.css';
 
+
+function list(data){
+  return data.map(item=>{
+    return item > 'b' ? <li>{item}</li> : <li>***{item}</li>
+    }
+  )
+}
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Person test="superhero" type="UX/UI" colour="pink"/>
+
+        <ol>
+          {list(['!a', 'b', 'c', 'x', 'y', 'z'])}
+        </ol>
+
+        <ul>
+          {list([1,2,3])}
+        </ul>
+
+        <Person test="artist" list="one,two,three" type="UX/UI" colour="pink" name="bob"/>
 
         <img src={logo} className="App-logo" alt="logo" />
         <p>

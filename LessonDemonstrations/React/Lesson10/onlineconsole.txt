@@ -1,0 +1,94 @@
+Demonstrating how forEach loops through values
+['a','b','c'].forEach(function(item){
+    console.log(item);
+});
+
+Another way of showing how it loops through
+['a','b','c'].forEach(function(item){
+    item = item + "a";
+    console.log(item);
+});
+
+Using map function example
+[
+    {title: "Power Rangers", type:"cartoon", ageRange: 10},
+    {title: "South Park", type: "cartoon", ageRange: 50}
+].map(function(item){
+    return `<p title="${item.title}">${item.title} ${item.type} ${item.ageRange}</p>`;
+});
+
+Using reduce function example
+[
+    {title: "Power Rangers", type:"cartoon", ageRange: 10},
+    {title: "South Park", type: "cartoon", ageRange: 50},
+    {title: "Thunder Cats", type: "cartoon", ageRange: 5}
+].reduce(function(total, item){
+    return total + `<p title="${item.title}">${item.title} ${item.type} ${item.ageRange}</p>`;
+}, "");
+
+
+Using reduce function example 2
+[
+    1,2,3,4
+].reduce(function(total, item){
+    return total + item;
+},10);
+
+
+Using reduce function example 2.5
+[
+    1,2,3,4
+].reduce(function(total, item){
+    return item < 3 ? total + item : total;
+},10);
+
+Working with arrays[]
+[a,b] = [10,20];
+a;
+b;
+[a,,c] = [10,70,30]; This wouldnt override b
+
+
+
+
+let example = function(){
+    return [100,200,300]
+}
+
+let [a,b,c] = example()
+
+a,b,c This will return c
+
+
+
+a = {x:10, y:10, z:10}
+b = {a:10, b:10, c:10}
+c = {...a, ...b} This is all of a all of b
+
+
+job = {m: "builder", n: "accountant", s: "taxman"}
+pay = {t: 100, u: 300, v: 500}
+
+        this below wasnt working - ask Q
+        package1 = {
+            for(i=0; i=3; i++){
+                package1[2i] = job[i];
+                package1[2i+1] = pay[i];
+        }
+        nor this
+        for(i=0; i=3; i++){
+            package1.push(job[i])
+            package1.push(pay[i])
+        };
+
+
+
+
+
+{...b, d:10}
+Object().entries({...b, d:10}).map(item=>item) this wasnt working i dont think
+
+Object.keys(c)
+Object.entries(c)
+
+Object.entries(c).map(item=>item[1]) this works
