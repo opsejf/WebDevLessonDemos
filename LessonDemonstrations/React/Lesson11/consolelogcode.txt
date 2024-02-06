@@ -1,0 +1,10 @@
+let params = (new
+URL(document.location)).searchParams;
+
+This does the same thing as above code, but shorter:
+
+let params = new URLSearchParams(window.location.search);
+
+then use the following code to get the params:
+
+params.get("a");
