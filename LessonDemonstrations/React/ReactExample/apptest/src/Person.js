@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 
@@ -223,6 +223,29 @@ export default function(props){
         // e=>setInputs({...inputs, age: e.target.value})
     }
 
+    let [newTest, setNewTest] = useState(100);
+    let [newTest_two, setNewTest_two] = useState("a");
+    let [newTest_three, setNewTest_three] = useState("b");
+    
+    
+    useEffect(()=>{
+        setNewTest(newTest +1);
+        console.log("Hello");
+    },[newTest_two, newTest_three]);
+
+
+
+
+    useEffect(()=>{
+        fetch('https://dummyjson.com/products/1')
+            .then(result=>result.json())
+            .then(data=>{
+                console.log(data);
+            })
+    },[])
+
+
+
     return (
 
         // if you have a form tag with items inside like buttons then it will 
@@ -233,6 +256,11 @@ export default function(props){
             <h3>{inputs.age}</h3>
             <h3>{inputs.gender}</h3>
             <h3>{inputs.telephone}</h3>
+
+            <h2>New Test {newTest}</h2>
+            <input onInput={e=>setNewTest_two(e.target.value)}/>
+            <input onInput={e=>setNewTest_three(e.target.value)}/>
+
 
             <button onClick={e=>setCounter(++counter)}></button>
             {props.test ? item() : ''}
@@ -284,8 +312,5 @@ export default function(props){
         </div>
     )
 };
-
-
-
 
 
